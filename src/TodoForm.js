@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
 
 class TodoForm extends Component {
   constructor(props){
@@ -15,7 +16,8 @@ class TodoForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let text = this.refs.text.value.trim();
+    console.log(this.ref);
+    let text = this.refs.text.props.value.trim();
 
     if(!text){
       alert('please enter a to-do');
@@ -40,6 +42,16 @@ class TodoForm extends Component {
     return (
       <div className="todo-form">
         <form onSubmit={this.handleSubmit}>
+          <TextField 
+            hintText="Enter New To-Do"
+            type="text"
+            ref="text" 
+            value={this.props.text}
+            onChange={this.handleChange}/>
+        </form>
+        
+      {/*
+        <form onSubmit={this.handleSubmit}>
           <div className="">
             <label className="">Todo List</label>
             <input 
@@ -50,6 +62,7 @@ class TodoForm extends Component {
               className=""/>
           </div>
         </form>
+      */}
       </div>
     );
   }

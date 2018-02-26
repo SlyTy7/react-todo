@@ -98,6 +98,7 @@ class App extends Component {
 
         <div className="App">
           <div className="">
+            <h1>To-Do List</h1>
             <TodoForm 
               {...this.state}
               changeText={this.handleChangeText}
