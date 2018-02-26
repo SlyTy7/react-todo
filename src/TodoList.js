@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 
 class TodoList extends Component {
@@ -21,11 +22,10 @@ class TodoList extends Component {
               todo={todo} 
               key={todo.id}>
                 <span onClick={this.onEdit.bind(this, todo)}>{todo.text}</span> 
-                <button 
+                <RaisedButton 
+                  href="#"
                   onClick={this.onDelete.bind(this, todo)}
-                  className="delete text-white btn btn-danger px-1 py-0" 
-                  href="#">x
-                </button>
+                  label="X" />
             </li>
           })
         }

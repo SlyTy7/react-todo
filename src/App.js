@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
@@ -93,19 +94,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="container">
-          <TodoForm 
-            {...this.state}
-            changeText={this.handleChangeText}
-            onTodoUpdate={this.handleTodoUpdate}
-            onTodoAdd={this.handleTodoAdd} />
-          <TodoList 
-            {...this.state}
-            deleteTodo={this.handleTodoDelete}
-            editTodo={this.handleTodoEdit} />
+      <MuiThemeProvider>
+
+        <div className="App">
+          <div className="container">
+            <TodoForm 
+              {...this.state}
+              changeText={this.handleChangeText}
+              onTodoUpdate={this.handleTodoUpdate}
+              onTodoAdd={this.handleTodoAdd} />
+            <TodoList 
+              {...this.state}
+              deleteTodo={this.handleTodoDelete}
+              editTodo={this.handleTodoEdit} />
+          </div>
         </div>
-      </div>
+
+      </MuiThemeProvider>
     );
   }
 }
