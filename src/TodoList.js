@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {List, ListItem} from 'material-ui/List';
+import Checkbox from 'material-ui/Checkbox';
 import RaisedButton from 'material-ui/RaisedButton';
 
 
@@ -14,22 +16,27 @@ class TodoList extends Component {
 
   render() {
     return (
-      <ul className="todo-list list-group">
+      <List className="todo-list">
         {
           this.props.todos.map(todo => {
-            return <li 
-              className="list-group-item" 
+            return <ListItem 
+              leftCheckbox={<Checkbox />}
+              className="" 
               todo={todo} 
-              key={todo.id}>
-                <span onClick={this.onEdit.bind(this, todo)}>{todo.text}</span> 
+              key={todo.id}
+              primaryText={todo.text} />
+
+              /*---TODO: Implemment this buttons---*/
+                /*<span onClick={this.onEdit.bind(this, todo)}>{todo.text}</span> 
                 <RaisedButton 
                   href="#"
                   onClick={this.onDelete.bind(this, todo)}
-                  label="X" />
-            </li>
+                  label="X"
+                  backgroundColor="#F44336" />*/
+            
           })
         }
-      </ul>
+      </List>
     );
   }
 }

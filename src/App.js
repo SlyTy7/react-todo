@@ -97,7 +97,7 @@ class App extends Component {
       <MuiThemeProvider>
 
         <div className="App">
-          <div className="container">
+          <div className="">
             <TodoForm 
               {...this.state}
               changeText={this.handleChangeText}

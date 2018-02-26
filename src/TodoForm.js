@@ -40,14 +40,14 @@ class TodoForm extends Component {
     return (
       <div className="todo-form">
         <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label className="h2">Todo List</label>
+          <div className="">
+            <label className="">Todo List</label>
             <input 
               type="text" 
               ref="text" 
               value={this.props.text}
               onChange={this.handleChange} 
-              className="form-control"/>
+              className=""/>
           </div>
         </form>
       </div>
