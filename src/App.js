@@ -109,7 +109,6 @@ class App extends Component {
 
   render() {
     return (
-      //<MuiThemeProvider>
 
         <div className="App">
           <div className="">
@@ -117,7 +116,7 @@ class App extends Component {
               My To-Dos
             </Typography>
             
-            <Grid container spacing={8}>
+            <Grid container spacing={8} justify="center">
               <Grid item xs={12}>
                 <TodoForm 
                   {...this.state}
@@ -141,7 +140,6 @@ class App extends Component {
           </div>
         </div>
 
-      //</MuiThemeProvider>
     );
   }
 }

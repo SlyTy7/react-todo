@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import Typography from 'material-ui/Typography';
+import Paper from 'material-ui/Paper';
 
 
 class FinishedList extends Component {
@@ -11,7 +12,7 @@ class FinishedList extends Component {
 
   render() {
     return (
-      <div className="finished-list">
+      <Paper className="finished-list" elevation={2}>
 
         <Typography variant="title" gutterBottom>
           Finished
@@ -37,7 +38,7 @@ class FinishedList extends Component {
           }
         </List>
         
-      </div>
+      </Paper>
     );
   }
 }

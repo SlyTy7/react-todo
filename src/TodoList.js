@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
+import Paper from 'material-ui/Paper';
 
 
 class TodoList extends Component {
@@ -16,7 +17,7 @@ class TodoList extends Component {
 
   render() {
     return (
-      <div className="todo-list">
+      <Paper className="todo-list" elevation={2}>
 
         <Typography variant="title" gutterBottom>
           To-Dos
@@ -27,7 +28,7 @@ class TodoList extends Component {
             this.props.todos.map(todo => {
               return (
 
-                <ListItem todo={todo} key={todo.id} button dense>
+                <ListItem todo={todo} key={todo.id} button dense divider>
 
                   <ListItemText primary={todo.text} />
 
@@ -45,7 +46,7 @@ class TodoList extends Component {
             })
           }
         </List>
-      </div>
+      </Paper>
     );
   }
 }
