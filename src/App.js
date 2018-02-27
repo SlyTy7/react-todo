@@ -112,11 +112,11 @@ class App extends Component {
 
         <div className="App">
           <div className="">
-            <Typography variant="display2" gutterBottom>
+            <Typography variant="display2" style={{textAlign: 'center'}} gutterBottom>
               My To-Dos
             </Typography>
             
-            <Grid container spacing={8} justify="center">
+            <Grid container spacing={16} justify="center" className="lists-container">
               <Grid item xs={12}>
                 <TodoForm 
                   {...this.state}

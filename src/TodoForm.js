@@ -37,7 +37,7 @@ class TodoForm extends Component {
 
   render() {
     return (
-      <div className="todo-form">
+      <div className="todo-form" style={{textAlign: 'center'}}>
       
         <form onSubmit={this.handleSubmit}>
           <TextField 
