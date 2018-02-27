@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import Button from 'material-ui/Button';
+import Checkbox from 'material-ui/Checkbox';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 
 
@@ -23,12 +23,12 @@ class TodoList extends Component {
                 <ListItem
                   className="" 
                   todo={todo} 
-                  key={todo.id}>
-                  
-                  <ListItemText 
-                    primary={todo.text}
-                    onClick={this.onEdit.bind(this, todo)}>
-                  </ListItemText>
+                  key={todo.id}
+                  button
+                  dense
+                  onClick={this.onEdit.bind(this, todo)}>
+
+                  <ListItemText primary={todo.text} />
 
                 </ListItem>
               )
