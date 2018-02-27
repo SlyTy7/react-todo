@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Grid from 'material-ui/Grid';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
+import FinishedList from './FinishedList';
 
 class App extends Component {
   constructor(props){
@@ -11,8 +13,6 @@ class App extends Component {
     this.handleTodoEdit = this.handleTodoEdit.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
     this.handleTodoUpdate = this.handleTodoUpdate.bind(this);
-    //this.componentWillMount = this.componentWillMount.bind(this);
-
     this.state = {
       text: '',
       isEdit: 0,
@@ -90,15 +90,26 @@ class App extends Component {
         <div className="App">
           <div className="">
             <h1>To-Do List</h1>
-            <TodoForm 
-              {...this.state}
-              changeText={this.handleChangeText}
-              onTodoUpdate={this.handleTodoUpdate}
-              onTodoAdd={this.handleTodoAdd} />
-            <TodoList 
-              {...this.state}
-              deleteTodo={this.handleTodoDelete}
-              editTodo={this.handleTodoEdit} />
+            
+            <Grid container spacing={8}>
+              <Grid item xs={12}>
+                <TodoForm 
+                  {...this.state}
+                  changeText={this.handleChangeText}
+                  onTodoUpdate={this.handleTodoUpdate}
+                  onTodoAdd={this.handleTodoAdd} />
+              </Grid>
+              <Grid item xs={6}>
+                <TodoList 
+                  {...this.state}
+                  deleteTodo={this.handleTodoDelete}
+                  editTodo={this.handleTodoEdit} />
+              </Grid>
+              <Grid item xs={6}>
+                <FinishedList />
+              </Grid>
+            </Grid>
+            
           </div>
         </div>
 
