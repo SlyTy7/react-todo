@@ -7,17 +7,17 @@ class TodoForm extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+
   }
 
   handleChange(e) {
     this.props.changeText(e.target.value);
-    console.log('changing text...');
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.ref);
-    let text = this.refs.text.props.value.trim();
+
+    let text = this.props.text.trim();
 
     if(!text){
       alert('please enter a to-do');
@@ -34,35 +34,20 @@ class TodoForm extends Component {
     } else {
       this.props.onTodoAdd(text);
     }
-
-    this.refs.text.value = '';
   }
 
   render() {
     return (
       <div className="todo-form">
+      
         <form onSubmit={this.handleSubmit}>
           <TextField 
-            hintText="Enter New To-Do"
+            placeholder="Enter New To-Do"
             type="text"
-            ref="text" 
             value={this.props.text}
-            onChange={this.handleChange}/>
+            onChange={this.handleChange} />
         </form>
-        
-      {/*
-        <form onSubmit={this.handleSubmit}>
-          <div className="">
-            <label className="">Todo List</label>
-            <input 
-              type="text" 
-              ref="text" 
-              value={this.props.text}
-              onChange={this.handleChange} 
-              className=""/>
-          </div>
-        </form>
-      */}
+
       </div>
     );
   }

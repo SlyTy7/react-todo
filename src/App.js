@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
@@ -84,17 +83,9 @@ class App extends Component {
     });
   }
 
-  /*componentWillMount(){
-    this.firebaseRef = Config.config.databaseURL;
-  }
-
-  componentDidMount(){
-    
-  }*/
-
   render() {
     return (
-      <MuiThemeProvider>
+      //<MuiThemeProvider>
 
         <div className="App">
           <div className="">
@@ -111,7 +102,7 @@ class App extends Component {
           </div>
         </div>
 
-      </MuiThemeProvider>
+      //</MuiThemeProvider>
     );
   }
 }

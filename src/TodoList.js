@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {List, ListItem} from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
-import RaisedButton from 'material-ui/RaisedButton';
+//import Button from 'material-ui/Button';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 
 
 class TodoList extends Component {
@@ -16,27 +15,35 @@ class TodoList extends Component {
 
   render() {
     return (
-      <List className="todo-list">
-        {
-          this.props.todos.map(todo => {
-            return <ListItem 
-              leftCheckbox={<Checkbox />}
-              className="" 
-              todo={todo} 
-              key={todo.id}
-              primaryText={todo.text} />
+      <div className="todo-list">
+        <List>
+          {
+            this.props.todos.map(todo => {
+              return (
+                <ListItem
+                  className="" 
+                  todo={todo} 
+                  key={todo.id}>
+                  
+                  <ListItemText 
+                    primary={todo.text}
+                    onClick={this.onEdit.bind(this, todo)}>
+                  </ListItemText>
 
-              /*---TODO: Implemment this buttons---*/
-                /*<span onClick={this.onEdit.bind(this, todo)}>{todo.text}</span> 
-                <RaisedButton 
-                  href="#"
-                  onClick={this.onDelete.bind(this, todo)}
-                  label="X"
-                  backgroundColor="#F44336" />*/
-            
-          })
-        }
-      </List>
+                </ListItem>
+              )
+                //---TODO: Implemment this buttons---
+                //<span onClick={this.onEdit.bind(this, todo)}>{todo.text}</span> 
+                //<RaisedButton 
+                  //href="#"
+                  //onClick={this.onDelete.bind(this, todo)}
+                  //label="X"
+                  //backgroundColor="#F44336" />
+              
+            })
+          }
+        </List>
+      </div>
     );
   }
 }
