@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import List, { ListItem, ListItemText } from 'material-ui/List';
+import Typography from 'material-ui/Typography';
 
 
 class FinishedList extends Component {
@@ -11,6 +12,11 @@ class FinishedList extends Component {
   render() {
     return (
       <div className="finished-list">
+
+        <Typography variant="title" gutterBottom>
+          Finished
+        </Typography>
+
         <List>
           {
             this.props.finished.map(todo => {

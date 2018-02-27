@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
@@ -106,7 +107,9 @@ class App extends Component {
 
         <div className="App">
           <div className="">
-            <h1>To-Do List</h1>
+            <Typography variant="display2" gutterBottom>
+              My To-Dos
+            </Typography>
             
             <Grid container spacing={8}>
               <Grid item xs={12}>

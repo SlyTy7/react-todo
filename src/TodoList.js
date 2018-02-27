@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import List, { ListItem, ListItemText } from 'material-ui/List';
+import Typography from 'material-ui/Typography';
 
 
 class TodoList extends Component {
@@ -15,10 +16,16 @@ class TodoList extends Component {
   render() {
     return (
       <div className="todo-list">
+
+        <Typography variant="title" gutterBottom>
+          To-Dos
+        </Typography>
+
         <List>
           {
             this.props.todos.map(todo => {
               return (
+
                 <ListItem
                   className="" 
                   todo={todo} 
@@ -30,15 +37,8 @@ class TodoList extends Component {
                   <ListItemText primary={todo.text} />
 
                 </ListItem>
-              )
-                //---TODO: Implemment this buttons---
-                //<span onClick={this.onEdit.bind(this, todo)}>{todo.text}</span> 
-                //<RaisedButton 
-                  //href="#"
-                  //onClick={this.onDelete.bind(this, todo)}
-                  //label="X"
-                  //backgroundColor="#F44336" />
-              
+
+              )           
             })
           }
         </List>
