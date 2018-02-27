@@ -43,7 +43,7 @@ class App extends Component {
 
   handleTodoAdd(text) {
     let newTodo = {
-      id: this.state.todos.length + 1,
+      id: this.state.todos[this.state.todos.length - 1].id + 1,
       text: text,
     }
     this.setState({
@@ -63,7 +63,6 @@ class App extends Component {
     this.setState({
       todos: todos,
       text: '',
-      isEdit: '',
     });
   }
 
@@ -77,7 +76,6 @@ class App extends Component {
     this.setState({
       finished: finished,
       text: '',
-      isEdit: '',
     });
   }
 
