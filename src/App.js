@@ -10,6 +10,7 @@ class App extends Component {
 
     this.handleTodoAdd = this.handleTodoAdd.bind(this);
     this.handleTodoDelete = this.handleTodoDelete.bind(this);
+    this.handleFinishedDelete = this.handleFinishedDelete.bind(this);
     this.handleTodoEdit = this.handleTodoEdit.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
     this.handleTodoUpdate = this.handleTodoUpdate.bind(this);
@@ -29,7 +30,13 @@ class App extends Component {
           id: 3,
           text: 'Do the dishes'
         },
-      ]
+      ],
+      finished: [
+        {
+          id: 1,
+          text: 'Cash check'
+        },
+      ],
     }
   }
 
@@ -53,6 +60,16 @@ class App extends Component {
       }
     }
     this.setState({todos: todos});
+  }
+
+  handleFinishedDelete(todo) {
+    let finished = this.state.finished;
+    for(var i=0; i<finished.length; i++){
+      if(finished[i].id === todo.id){
+        finished.splice(i, 1);
+      }
+    }
+    this.setState({finished: finished});
   }
 
   handleTodoEdit(todo){
@@ -106,7 +123,9 @@ class App extends Component {
                   editTodo={this.handleTodoEdit} />
               </Grid>
               <Grid item xs={6}>
-                <FinishedList />
+                <FinishedList 
+                  {...this.state}
+                  deleteTodo={this.handleFinishedDelete} />
               </Grid>
             </Grid>
             
