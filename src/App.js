@@ -55,22 +55,30 @@ class App extends Component {
 
   handleTodoDelete(todo) {
     let todos = this.state.todos;
-    for(var i=0; i<todos.length; i++){
+    for(let i=0; i<todos.length; i++){
       if(todos[i].id === todo.id){
         todos.splice(i, 1);
       }
     }
-    this.setState({todos: todos});
+    this.setState({
+      todos: todos,
+      text: '',
+      isEdit: '',
+    });
   }
 
   handleFinishedDelete(todo) {
     let finished = this.state.finished;
-    for(var i=0; i<finished.length; i++){
+    for(let i=0; i<finished.length; i++){
       if(finished[i].id === todo.id){
         finished.splice(i, 1);
       }
     }
-    this.setState({finished: finished});
+    this.setState({
+      finished: finished,
+      text: '',
+      isEdit: '',
+    });
   }
 
   handleTodoEdit(todo){
