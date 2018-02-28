@@ -57,15 +57,26 @@ class FinishedList extends Component {
                   key={todo.id}
                   button
                   dense
-                  divider
-                  onClick={this.handleCheck.bind(this, todo)}>
+                  divider>
+
+                  {/*CHECKBOX*/}
                   <Checkbox
-                    checked={false}
                     tabIndex={-1}
                     disableRipple
+                    onClick={this.handleCheck.bind(this, todo)}
                     checked={this.state.checked.indexOf(todo) !== -1} />
-                  <ListItemText primary={todo.text} />
-                  <Button variant="raised" color="secondary" size="small" onClick={this.onDelete.bind(this, todo)}>
+
+                  {/*TEXT*/}
+                  <ListItemText 
+                    primary={todo.text} 
+                    onClick={this.handleCheck.bind(this, todo)}/>
+
+                  {/*DELETE BUTTON*/}
+                  <Button 
+                    variant="raised" 
+                    color="secondary" 
+                    size="small" 
+                    onClick={this.onDelete.bind(this, todo)}>
                     Delete
                   </Button>  
                 </ListItem>
