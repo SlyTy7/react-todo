@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props){
     super(props);
 
+    this.handleToggle = this.handleToggle.bind(this);
     this.handleTodoAdd = this.handleTodoAdd.bind(this);
     this.handleTodoDelete = this.handleTodoDelete.bind(this);
     this.handleFinishedDelete = this.handleFinishedDelete.bind(this);
@@ -32,16 +33,34 @@ class App extends Component {
           text: 'Do the dishes'
         },
       ],
-      finished: [
-        {
-          id: 1,
-          text: 'Cash check'
-        },
-      ],
+      checked: [],
     }
   }
 
-  handleTodoAdd(text) {
+  handleToggle(todo){
+    const { checked } = this.state;
+    const { todos } = this.state;
+    const newChecked = [...checked];
+    const newTodo = [...todos];
+
+    if (checked.indexOf(todo) === -1) {
+      newChecked.push(todo);
+      newTodo.splice(todos.indexOf(todo), 1);
+      this.setState({
+        checked: newChecked,
+        todos: newTodo,
+      });
+    } else {
+      newTodo.push(todo);
+      newChecked.splice(checked.indexOf(todo), 1);
+      this.setState({
+        checked: newChecked,
+        todos: newTodo,
+      });
+    }
+  }
+
+  handleTodoAdd(text){
     let newTodo = {
       id: this.state.todos[this.state.todos.length - 1].id + 1,
       text: text,
@@ -53,28 +72,32 @@ class App extends Component {
     });
   }
 
-  handleTodoDelete(todo) {
+  handleTodoDelete(todo){
     let todos = this.state.todos;
-    for(let i=0; i<todos.length; i++){
-      if(todos[i].id === todo.id){
-        todos.splice(i, 1);
+    let newTodos = [...todos];
+
+    for(let i=0; i<newTodos.length; i++){
+      if(newTodos[i].id === todo.id){
+        newTodos.splice(newTodos.indexOf(todo), 1);
       }
     }
     this.setState({
-      todos: todos,
+      todos: newTodos,
       text: '',
     });
   }
 
-  handleFinishedDelete(todo) {
-    let finished = this.state.finished;
-    for(let i=0; i<finished.length; i++){
-      if(finished[i].id === todo.id){
-        finished.splice(i, 1);
+  handleFinishedDelete(todo){
+    let finished = this.state.checked;
+    let newFinished = [...finished];
+
+    for(let i=0; i<newFinished.length; i++){
+      if(newFinished[i].id === todo.id){
+        newFinished.splice(newFinished.indexOf(todo), 1);
       }
     }
     this.setState({
-      finished: finished,
+      checked: newFinished,
       text: '',
     });
   }
@@ -92,14 +115,14 @@ class App extends Component {
     });
   }
 
-  handleTodoUpdate(todo) {
+  handleTodoUpdate(todo){
     let todos = this.state.todos;
     for(var i=0; i<todos.length; i++){
       if(todos[i].id === todo.id){
         todos.splice(i, 1, todo);
       }
     }
-    //todos.push(todo);
+
     this.setState({
       todos: todos,
       isEdit: 0,
@@ -107,7 +130,7 @@ class App extends Component {
     });
   }
 
-  render() {
+  render(){
     return (
 
         <div className="App">
@@ -124,15 +147,17 @@ class App extends Component {
                   onTodoUpdate={this.handleTodoUpdate}
                   onTodoAdd={this.handleTodoAdd} />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <TodoList 
                   {...this.state}
+                  toggleTodo={this.handleToggle}
                   deleteTodo={this.handleTodoDelete}
                   editTodo={this.handleTodoEdit} />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <FinishedList 
                   {...this.state}
+                  toggleTodo={this.handleToggle}
                   deleteTodo={this.handleFinishedDelete} />
               </Grid>
             </Grid>

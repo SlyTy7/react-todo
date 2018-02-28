@@ -8,31 +8,9 @@ import Button from 'material-ui/Button';
 
 
 class TodoList extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      checked: [0],
-    };
-  }
 
   handleCheck(todo){
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(todo);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(todo);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    this.setState({
-      checked: newChecked,
-    });
-  }
-
-  onCheck(todo){
-
+    this.props.toggleTodo(todo)
   }
 
   onDelete(todo) {
@@ -57,22 +35,21 @@ class TodoList extends Component {
               return (
                 <ListItem 
                   todo={todo} 
-                  key={todo.id} 
-                  button 
+                  key={todo.id}  
                   dense 
-                  divider>
+                  divider
+                  button>
 
                   {/*CHECKBOX*/}
                   <Checkbox
-                    tabIndex={-1}
                     disableRipple
                     onClick={this.handleCheck.bind(this, todo)}
-                    checked={this.state.checked.indexOf(todo) !== -1} />
+                    checked={false} />
 
                   {/*TEXT*/}
                   <ListItemText 
-                    primary={todo.text}
-                    onClick={this.handleCheck.bind(this, todo)} />
+                    primary={todo.text} 
+                    onClick={this.handleCheck.bind(this, todo)}/>
 
                   {/*EDIT BUTTON*/}
                   <Button 
