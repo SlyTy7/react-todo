@@ -42,7 +42,7 @@ class FinishedList extends Component {
     return (
       <Paper className="finished-list" elevation={2}>
 
-        <Typography variant="title" gutterBottom style={{textAlign: 'center'}}>
+        <Typography variant="title" gutterBottom style={{textAlign: 'center', padding: '15px'}}>
           Finished
         </Typography>
 

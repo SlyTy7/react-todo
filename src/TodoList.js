@@ -21,7 +21,7 @@ class TodoList extends Component {
       <div className="list todo-list">
         <Paper elevation={2}>
 
-          <Typography variant="title" gutterBottom style={{textAlign: 'center'}}>
+          <Typography variant="title" gutterBottom style={{textAlign: 'center', padding: '10px'}}>
             To-Dos
           </Typography>
 
