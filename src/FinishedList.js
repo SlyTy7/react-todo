@@ -42,35 +42,32 @@ class FinishedList extends Component {
     return (
       <Paper className="finished-list" elevation={2}>
 
+        {/* TITLE */}
         <Typography variant="title" gutterBottom style={{textAlign: 'center', padding: '15px'}}>
           Finished
         </Typography>
 
+        {/* LIST */}
         <List>
           {
             this.props.finished.map(todo => {
-
               return (
                 <ListItem
                   todo={todo} 
                   key={todo.id}
                   button
                   dense
-                  onClick={this.handleCheck.bind(this, todo)}
-                >
+                  divider
+                  onClick={this.handleCheck.bind(this, todo)}>
                   <Checkbox
                     checked={false}
                     tabIndex={-1}
                     disableRipple
-                    checked={this.state.checked.indexOf(todo) !== -1}
-                  />
-
+                    checked={this.state.checked.indexOf(todo) !== -1} />
                   <ListItemText primary={todo.text} />
-
                   <Button variant="raised" color="secondary" size="small" onClick={this.onDelete.bind(this, todo)}>
                     Delete
                   </Button>  
-
                 </ListItem>
               )
             })
