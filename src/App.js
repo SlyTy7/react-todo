@@ -61,8 +61,15 @@ class App extends Component {
   }
 
   handleTodoAdd(text){
+    let all = this.state.todos.concat(this.state.checked);
+    let allIds = [];
+
+    for(let i = 0; i < all.length; i++){
+      allIds.push(all[i].id);
+    }
+
     let newTodo = {
-      id: this.state.todos[this.state.todos.length - 1].id + 1,
+      id: allIds.sort()[allIds.length - 1] + 1,
       text: text,
     }
     this.setState({
