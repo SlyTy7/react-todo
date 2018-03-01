@@ -3,10 +3,9 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
-import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
-import DeleteIcon from 'material-ui-icons/Delete';
 import EditIcon from 'material-ui-icons/Build';
+import DeleteIcon from 'material-ui-icons/Delete';
 
 class TodoList extends Component {
 

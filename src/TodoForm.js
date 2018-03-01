@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 
 class TodoForm extends Component {
@@ -37,17 +39,22 @@ class TodoForm extends Component {
 
   render() {
     return (
-      <div className="todo-form" style={{textAlign: 'center'}}>
-      
-        <form onSubmit={this.handleSubmit}>
-          <TextField 
-            placeholder="Enter New To-Do"
-            type="text"
-            value={this.props.text}
-            onChange={this.handleChange} />
-        </form>
+      <Grid container justify="center">
+        <Grid item xs={12} sm={10} md={8} className="todo-form" style={{textAlign: 'center'}}>
+        
+          <Paper onSubmit={this.handleSubmit} style={{padding: '0px 15px 15px 15px'}}>
+            <TextField 
+              id="textarea"
+              label="Enter A To-Do"
+              type="text"
+              multiline
+              fullWidth
+              value={this.props.text}
+              onChange={this.handleChange} />
+          </Paper>
 
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 

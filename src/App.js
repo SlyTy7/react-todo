@@ -140,37 +140,41 @@ class App extends Component {
   render(){
     return (
 
-        <div className="App">
-          <div className="">
-            <Typography variant="display2" style={{textAlign: 'center'}} gutterBottom>
-              My To-Dos
-            </Typography>
-            
-            <Grid container spacing={16} justify="center" className="lists-container">
-              <Grid item xs={12}>
-                <TodoForm 
-                  {...this.state}
-                  changeText={this.handleChangeText}
-                  onTodoUpdate={this.handleTodoUpdate}
-                  onTodoAdd={this.handleTodoAdd} />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TodoList 
-                  {...this.state}
-                  toggleTodo={this.handleToggle}
-                  deleteTodo={this.handleTodoDelete}
-                  editTodo={this.handleTodoEdit} />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <FinishedList 
-                  {...this.state}
-                  toggleTodo={this.handleToggle}
-                  deleteTodo={this.handleFinishedDelete} />
+      <div className="App">
+
+          <Typography variant="display2" style={{textAlign: 'center'}} gutterBottom>
+            My To-Dos
+          </Typography>
+          
+          <Grid container justify="center" className="lists-container">
+            <Grid item xs={12} sm={10} md={8}>
+              <Grid container spacing={16}>
+
+                <Grid item xs={12}>
+                  <TodoForm 
+                    {...this.state}
+                    changeText={this.handleChangeText}
+                    onTodoUpdate={this.handleTodoUpdate}
+                    onTodoAdd={this.handleTodoAdd} />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TodoList
+                    {...this.state}
+                    toggleTodo={this.handleToggle}
+                    deleteTodo={this.handleTodoDelete}
+                    editTodo={this.handleTodoEdit} />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <FinishedList 
+                    {...this.state}
+                    toggleTodo={this.handleToggle}
+                    deleteTodo={this.handleFinishedDelete} />
+                </Grid>
               </Grid>
             </Grid>
-            
-          </div>
-        </div>
+          </Grid>
+
+      </div>
 
     );
   }
