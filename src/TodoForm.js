@@ -42,15 +42,16 @@ class TodoForm extends Component {
       <Grid container justify="center">
         <Grid item xs={12} sm={10} md={8} className="todo-form" style={{textAlign: 'center'}}>
         
-          <Paper onSubmit={this.handleSubmit} style={{padding: '0px 15px 15px 15px'}}>
-            <TextField 
-              id="textarea"
-              label="Enter A To-Do"
-              type="text"
-              multiline
-              fullWidth
-              value={this.props.text}
-              onChange={this.handleChange} />
+          <Paper style={{padding: '0px 15px 15px 15px'}}>
+            <form onSubmit={this.handleSubmit}>
+              <TextField 
+                id="textarea"
+                label="Enter A To-Do"
+                type="text"
+                fullWidth
+                value={this.props.text}
+                onChange={this.handleChange} />
+            </form>
           </Paper>
 
         </Grid>
