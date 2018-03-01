@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import List, { ListItem, ListItemText } from 'material-ui/List';
+import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import Button from 'material-ui/Button';
+
+import IconButton from 'material-ui/IconButton';
+import DeleteIcon from 'material-ui-icons/Delete';
+import EditIcon from 'material-ui-icons/Build';
 
 
 
@@ -38,7 +42,8 @@ class TodoList extends Component {
                   key={todo.id}  
                   dense 
                   divider
-                  button>
+                  button
+                  onClick={this.handleCheck.bind(this, todo)} >
 
                   {/*CHECKBOX*/}
                   <Checkbox
@@ -48,10 +53,22 @@ class TodoList extends Component {
 
                   {/*TEXT*/}
                   <ListItemText 
-                    primary={todo.text} 
-                    onClick={this.handleCheck.bind(this, todo)}/>
+                    primary={todo.text} />
 
-                  {/*EDIT BUTTON*/}
+
+                  <ListItemSecondaryAction>
+
+                    <IconButton aria-label="Edit">
+                      <EditIcon onClick={this.onEdit.bind(this, todo)} />
+                    </IconButton>
+
+                    <IconButton aria-label="Delete">
+                      <DeleteIcon onClick={this.onDelete.bind(this, todo)} />
+                    </IconButton>
+
+                  </ListItemSecondaryAction>
+
+                  {/*
                   <Button 
                     variant="raised" 
                     color="primary" 
@@ -61,7 +78,7 @@ class TodoList extends Component {
                     Edit
                   </Button>
 
-                  {/*DELETE BUTTON*/}
+                  
                   <Button 
                     variant="raised" 
                     color="secondary" 
@@ -69,7 +86,10 @@ class TodoList extends Component {
                     disableRipple
                     onClick={this.onDelete.bind(this, todo)} >
                     Delete
-                  </Button>                 
+                  </Button>
+                  */}
+
+
                 </ListItem>
               )         
             })
