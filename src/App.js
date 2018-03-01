@@ -147,7 +147,7 @@ class App extends Component {
           </Typography>
           
           <Grid container justify="center" className="lists-container">
-            <Grid item xs={12} sm={10} md={8}>
+            <Grid item xs={12} md={10} lg={8}>
               <Grid container spacing={16}>
 
                 <Grid item xs={12}>

@@ -21,7 +21,7 @@ class TodoForm extends Component {
     let text = this.props.text.trim();
 
     if(!text){
-      alert('please enter a to-do');
+      alert('Please enter a to-do!');
       return;
     }
 
