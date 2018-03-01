@@ -4,12 +4,9 @@ import Typography from 'material-ui/Typography';
 import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import Button from 'material-ui/Button';
-
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
 import EditIcon from 'material-ui-icons/Build';
-
-
 
 class TodoList extends Component {
 
@@ -28,11 +25,12 @@ class TodoList extends Component {
   render() {
     return (
       <Paper className="todo-list" elevation={2}>
-
+        {/* TITLE */}
         <Typography variant="title" gutterBottom style={{textAlign: 'center', padding: '15px'}}>
           To-Dos
         </Typography>
 
+        {/* LIST */}
         <List>
           {
             this.props.todos.map(todo => {
@@ -52,51 +50,28 @@ class TodoList extends Component {
                     checked={false} />
 
                   {/*TEXT*/}
-                  <ListItemText 
-                    primary={todo.text} />
+                  <ListItemText primary={todo.text} />
 
-
+                  {/*BUTTONS*/}
                   <ListItemSecondaryAction>
-
+                    {/*EDIT BUTTON*/}
                     <IconButton aria-label="Edit">
                       <EditIcon onClick={this.onEdit.bind(this, todo)} />
                     </IconButton>
 
+                    {/*DELETE BUTTON*/}
                     <IconButton aria-label="Delete">
                       <DeleteIcon onClick={this.onDelete.bind(this, todo)} />
                     </IconButton>
-
                   </ListItemSecondaryAction>
-
-                  {/*
-                  <Button 
-                    variant="raised" 
-                    color="primary" 
-                    size="small" 
-                    disableRipple
-                    onClick={this.onEdit.bind(this, todo)} >
-                    Edit
-                  </Button>
-
-                  
-                  <Button 
-                    variant="raised" 
-                    color="secondary" 
-                    size="small" 
-                    disableRipple
-                    onClick={this.onDelete.bind(this, todo)} >
-                    Delete
-                  </Button>
-                  */}
-
 
                 </ListItem>
               )         
             })
           }
         </List>
-      </Paper>
 
+      </Paper>
     );
   }
 }

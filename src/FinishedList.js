@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import List, { ListItem, ListItemText } from 'material-ui/List';
+import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import Button from 'material-ui/Button';
-
+import IconButton from 'material-ui/IconButton';
+import DeleteIcon from 'material-ui-icons/Delete';
 
 class FinishedList extends Component {
 
@@ -16,12 +17,9 @@ class FinishedList extends Component {
     this.props.deleteTodo(finish);
   }
 
-  //this.state.checked.indexOf(todo) !== -1
-
   render() {
     return (
       <Paper className="finished-list" elevation={2}>
-
         {/* TITLE */}
         <Typography variant="title" gutterBottom style={{textAlign: 'center', padding: '15px'}}>
           Finished
@@ -37,29 +35,26 @@ class FinishedList extends Component {
                   key={todo.id}
                   button
                   dense
-                  divider>
+                  divider
+                  onClick={this.handleCheck.bind(this, todo)}>
 
                   {/*CHECKBOX*/}
                   <Checkbox
-                    tabIndex={-1}
                     disableRipple
                     onClick={this.handleCheck.bind(this, todo)}
                     checked={true} />
 
                   {/*TEXT*/}
-                  <ListItemText 
-                    primary={todo.text} 
-                    onClick={this.handleCheck.bind(this, todo)} />
+                  <ListItemText primary={todo.text} />
 
-                  {/*DELETE BUTTON*/}
-                  <Button 
-                    variant="raised" 
-                    color="secondary" 
-                    size="small" 
-                    tabIndex={-1}
-                    onClick={this.onDelete.bind(this, todo)}>
-                    Delete
-                  </Button>  
+                  {/*BUTTONS*/}
+                  <ListItemSecondaryAction>
+                    {/*EDIT BUTTON*/}
+                    <IconButton>
+                      <DeleteIcon onClick={this.onDelete.bind(this, todo)} />
+                    </IconButton>
+                  </ListItemSecondaryAction>
+
                 </ListItem>
               )
             })

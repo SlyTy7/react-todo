@@ -117,7 +117,7 @@ class App extends Component {
 
   handleTodoUpdate(todo){
     let todos = this.state.todos;
-    for(var i=0; i<todos.length; i++){
+    for(let i=0; i<todos.length; i++){
       if(todos[i].id === todo.id){
         todos.splice(i, 1, todo);
       }
