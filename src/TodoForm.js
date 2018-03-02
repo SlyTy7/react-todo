@@ -42,7 +42,7 @@ class TodoForm extends Component {
       <Grid container justify="center">
         <Grid item xs={12} sm={10} md={8} className="todo-form" style={{textAlign: 'center'}}>
         
-          <Paper style={{padding: '0px 15px 15px 15px'}}>
+          <Paper style={{padding: '5px 20px 20px 20px'}}>
             <form onSubmit={this.handleSubmit}>
               <TextField 
                 id="textarea"
