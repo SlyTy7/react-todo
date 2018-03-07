@@ -69,9 +69,10 @@ class App extends Component {
     }
 
     let newTodo = {
-      id: allIds.sort()[allIds.length - 1] + 1,
+      id: allIds.sort((a, b) => a-b)[allIds.length - 1] + 1,
       text: text,
     }
+    
     this.setState({
       todos: this.state.todos.concat(newTodo),
       text: '',

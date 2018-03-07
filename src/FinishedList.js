@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import Fade from 'material-ui/transitions/Fade';
 import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
@@ -30,7 +29,6 @@ class FinishedList extends Component {
           {
             this.props.checked.map(todo => {
               return (
-                <Fade in={true}>
                 <ListItem
                   todo={todo} 
                   key={todo.id}
@@ -58,7 +56,6 @@ class FinishedList extends Component {
                   </ListItemSecondaryAction>
 
                 </ListItem>
-                </Fade>
               )
             })
           }
