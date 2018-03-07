@@ -142,7 +142,7 @@ class App extends Component {
 
       <div className="App">
 
-          <Typography variant="display2" style={{textAlign: 'center'}} gutterBottom>
+          <Typography variant="display1" style={{textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold'}} gutterBottom>
             My To-Dos
           </Typography>
           
