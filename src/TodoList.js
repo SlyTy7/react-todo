@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+import Fade from 'material-ui/transitions/Fade';
 import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
@@ -34,37 +35,39 @@ class TodoList extends Component {
           {
             this.props.todos.map(todo => {
               return (
-                <ListItem 
-                  todo={todo} 
-                  key={todo.id}  
-                  dense 
-                  divider
-                  button
-                  onClick={this.handleCheck.bind(this, todo)} >
+                <Fade in={true}>
+                  <ListItem 
+                    todo={todo} 
+                    key={todo.id}  
+                    dense 
+                    divider
+                    button
+                    onClick={this.handleCheck.bind(this, todo)} >
 
-                  {/*CHECKBOX*/}
-                  <Checkbox
-                    disableRipple
-                    onClick={this.handleCheck.bind(this, todo)}
-                    checked={false} />
+                    {/*CHECKBOX*/}
+                    <Checkbox
+                      disableRipple
+                      onClick={this.handleCheck.bind(this, todo)}
+                      checked={false} />
 
-                  {/*TEXT*/}
-                  <ListItemText primary={todo.text} />
+                    {/*TEXT*/}
+                    <ListItemText primary={todo.text} />
 
-                  {/*BUTTONS*/}
-                  <ListItemSecondaryAction>
-                    {/*EDIT BUTTON*/}
-                    <IconButton aria-label="Edit">
-                      <EditIcon onClick={this.onEdit.bind(this, todo)} />
-                    </IconButton>
+                    {/*BUTTONS*/}
+                    <ListItemSecondaryAction>
+                      {/*EDIT BUTTON*/}
+                      <IconButton aria-label="Edit">
+                        <EditIcon onClick={this.onEdit.bind(this, todo)} />
+                      </IconButton>
 
-                    {/*DELETE BUTTON*/}
-                    <IconButton aria-label="Delete">
-                      <DeleteIcon onClick={this.onDelete.bind(this, todo)} />
-                    </IconButton>
-                  </ListItemSecondaryAction>
+                      {/*DELETE BUTTON*/}
+                      <IconButton aria-label="Delete">
+                        <DeleteIcon onClick={this.onDelete.bind(this, todo)} />
+                      </IconButton>
+                    </ListItemSecondaryAction>
 
-                </ListItem>
+                  </ListItem>
+                </Fade>
               )         
             })
           }
