@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACE,SACA,aACA,8BACA,wBAA0B","file":"static/css/main.99c79d52.css","sourcesContent":["body {\n  margin: 0;\n  padding: 20px;\n  font-family: 'Roboto', sans-serif;\n  background-color: #fbfbfb;\n}\n\n\n\n// WEBPACK FOOTER //\n// ./src/index.css"],"sourceRoot":""}
