@@ -25,3 +25,5 @@ A basic to-do list built with ReactJS.  You can add new to-dos, edit current to-
 ## Credits
 
 This project was bootstrapped with [Create-React-App](https://github.com/facebookincubator/create-react-app).
+
+Background photo by [Martin Jernberg](https://unsplash.com/photos/2Bjq3A7rGn4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
